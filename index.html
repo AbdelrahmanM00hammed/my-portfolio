@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelrahman Saeed | Data Engineer & Security Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #05070a;
+            --surface: #0f121d;
+            --accent: #00f2fe;
+            --accent-low: rgba(0, 242, 254, 0.1);
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+            --gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Space Grotesk', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        
+        /* Hero Section */
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            background: radial-gradient(circle at 50% 50%, #111827 0%, #05070a 100%); 
+            padding: 20px;
+            position: relative;
+        }
+
+        .profile-img { 
+            width: 170px; 
+            height: 170px; 
+            border-radius: 50%; 
+            border: 3px solid var(--accent); 
+            margin-bottom: 25px; 
+            object-fit: cover; 
+            box-shadow: 0 0 30px var(--accent-low); 
+        }
+
+        .hero h1 { 
+            font-size: 4rem; 
+            margin-bottom: 10px; 
+            background: var(--gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            letter-spacing: -2px;
+        }
+
+        .tagline { font-size: 1.5rem; color: var(--accent); font-weight: 500; margin-bottom: 25px; }
+
+        .usp-container { 
+            background: var(--accent-low); 
+            border-left: 4px solid var(--accent); 
+            padding: 25px; 
+            border-radius: 0 15px 15px 0; 
+            max-width: 800px; 
+            margin-bottom: 35px;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        /* Sections Styling */
+        .container { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
+        h2 { 
+            font-size: 2.5rem; 
+            color: #fff; 
+            margin-bottom: 50px; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        h2 i { color: var(--accent); font-size: 1.8rem; }
+
+        /* Timeline / Education Grid */
+        .timeline { border-left: 2px solid #1e293b; padding-left: 40px; margin-left: 10px; }
+        .timeline-item { position: relative; margin-bottom: 60px; }
+        .timeline-item::before { 
+            content: ''; 
+            width: 16px; 
+            height: 16px; 
+            background: var(--accent); 
+            position: absolute; 
+            left: -49px; 
+            top: 8px; 
+            border-radius: 50%; 
+            box-shadow: 0 0 15px var(--accent);
+        }
+        .timeline-item h4 { font-size: 1.4rem; color: #fff; margin-bottom: 5px; }
+        .timeline-item .org { color: var(--accent); font-weight: 600; display: block; margin-bottom: 12px; }
+        .timeline-item ul { list-style: none; color: var(--text-dim); }
+        .timeline-item ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .timeline-item ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+
+        /* Projects Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { 
+            background: var(--surface); 
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid #1e293b; 
+            transition: 0.4s ease; 
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.6rem; }
+        .card p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 25px; }
+        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { background: #1e293b; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; border: 1px solid #334155; }
+
+        /* Skills Chips */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill-chip { 
+            background: var(--surface); 
+            padding: 12px 20px; 
+            border-radius: 12px; 
+            border-bottom: 3px solid var(--accent); 
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Contact Area */
+        .contact-cta { 
+            background: var(--gradient); 
+            padding: 80px 40px; 
+            border-radius: 30px; 
+            text-align: center; 
+            color: #05070a; 
+            margin-top: 50px; 
+        }
+        .contact-cta h2 { color: #05070a; justify-content: center; border: none; }
+        .contact-links a { font-size: 3rem; margin: 0 20px; color: #05070a; transition: 0.3s; }
+        .contact-links a:hover { transform: scale(1.2); }
+
+        footer { text-align: center; padding: 50px; color: var(--text-dim); border-top: 1px solid #1e293b; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <img src="abdo.jpg.jpeg" alt="Abdelrahman Saeed" class="profile-img">
+        <h1>Abdelrahman Mohammed Saeed</h1>
+        <div class="tagline">Data Engineer | Cybersecurity Student</div>
+        
+        <div class="usp-container">
+            "I combine advanced algorithm design with Microsoft-certified Data Engineering to build robust, secure, and high-performance data systems."
+        </div>
+
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/abdelrahman-mohamed-saeed" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:abdomohamedsaeed698@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education & Professional Training</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <h4>Cybersecurity Department (2nd Year)</h4>
+                    <span class="org">Alexandria National University</span>
+                    <ul>
+                        <li>Fundamental cybersecurity concepts and system protection strategies.</li>
+                        <li>Exploring the intersection of secure system architecture and data management.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Microsoft Data Engineering Track</h4>
+                    <span class="org">Digital Pioneer (DEPi)</span>
+                    <ul>
+                        <li>Designing end-to-end data pipelines and ETL processes.</li>
+                        <li>SQL database management and Microsoft Azure cloud implementations.</li>
+                        <li>Executing real-world data analysis and system integration.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>ITIDA Freelance Program</h4>
+                    <span class="org">Professional Freelancing Certification</span>
+                    <ul>
+                        <li>Mastering client management and project proposal writing.</li>
+                        <li>Development of professional portfolios for global digital markets.</li>
+                        <li>Optimization of workflows on major freelance platforms.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>ECPC - Problem Solving</h4>
+                    <span class="org">Competitive Programming Participant</span>
+                    <ul>
+                        <li>Advanced algorithm design and computational optimization.</li>
+                        <li>Solving complex logic challenges using C++, Python, and Java.</li>
+                        <li>Managing high-pressure technical environments and time-sensitive goals.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2><i class="fas fa-code-branch"></i> Technical Project Showcase</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <h3>FoodieExpress</h3>
+                    <p>A comprehensive web application for restaurant management, featuring dynamic ordering and secure user authentication.</p>
+                    <div class="tag-group">
+                        <span class="tag">JavaScript</span> <span class="tag">Database Mgmt</span> <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Car Rental System</h3>
+                    <p>A database-centric system for vehicle fleet tracking, lifecycle management, and secure reservation workflows.</p>
+                    <div class="tag-group">
+                        <span class="tag">Java</span> <span class="tag">SQL</span> <span class="tag">OOP Design</span> <span class="tag">UML</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Flight Booking System</h3>
+                    <p>An enterprise-style management platform built with robust OOP principles for passenger and flight tracking.</p>
+                    <div class="tag-group">
+                        <span class="tag">Java</span> <span class="tag">OOP</span> <span class="tag">Data Integrity</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2><i class="fas fa-tools"></i> Technical Toolkit</h2>
+            <div class="skills-container">
+                <div class="skill-chip">SQL & ETL Pipelines</div>
+                <div class="skill-chip">Microsoft Azure</div>
+                <div class="skill-chip">Java / Python / C++</div>
+                <div class="skill-chip">Cybersecurity Foundations</div>
+                <div class="skill-chip">Agile Methodology</div>
+                <div class="skill-chip">Git & GitHub Control</div>
+                <div class="skill-chip">Project Proposal Writing</div>
+            </div>
+        </section>
+
+        <section class="contact-cta">
+            <h2>Let's Engineer Your Data Future</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">I am ready for high-impact data engineering projects and technical collaborations.</p>
+            <div class="contact-links">
+                <a href="mailto:abdomohamedsaeed698@gmail.com"><i class="fas fa-envelope-square"></i></a>
+                <a href="https://www.linkedin.com/in/abdelrahman-mohamed-saeed" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p style="margin-top: 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">abdomohamedsaeed698@gmail.com</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Abdelrahman Mohamed Saeed | Designed per Professional Portfolio Guidelines</p>
+    </footer>
+
+</body>
+</html>
